@@ -17,9 +17,9 @@ jobs:
 
       - name: Docker build and push
         run: |
-          docker build -t Assignment-26_06_2024 .
-          docker tag Assignment-26_06_2024 howaboutwepullsomeimages/Assignment-26_06_2024:latest
+          docker build -t assignment-26_06_2024 .
+          docker tag assignment-26_06_2024 howaboutwepullsomeimages/assignment-26_06_2024:latest
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push howaboutwepullsomeimages/Assignment-26_06_2024:latest
+          docker push howaboutwepullsomeimages/assignment-26_06_2024:latest
         env:
           DOCKER_CLI_ACI: 1
