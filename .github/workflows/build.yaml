@@ -23,3 +23,15 @@ jobs:
           docker push howaboutwepullsomeimages/assignment-26_06_2024:latest
         env:
           DOCKER_CLI_ACI: 1
+          
+      - name: Pull the Docker image On AWS EC2 For tetsing of website
+        run: docker pull sevenajay/tic-tac-toe:latest
+      
+
+      - name: Stop and remove existing container
+        run: |
+            docker stop assignment-26_06_2024 || true
+            docker rm assignment-26_06_2024 || true
+  
+      - name: Run the container on AWS EC2 for testing
+        run: docker run -d --name assignment-26_06_2024 -p 3000:3000 howaboutwepullsomeimages/assignment-26_06_2024:latest
