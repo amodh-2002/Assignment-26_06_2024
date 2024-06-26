@@ -1,11 +1,11 @@
 name: Code Build Workflow
 
 on:
-    workflow_run:
-      workflows: 
-        - Sonar Code Review Workflow
-      types:
-        - completed
+  workflow_run:
+    workflows: 
+      - Sonar Code Review Workflow
+    types:
+      - completed
         
 jobs:
   build:
@@ -17,9 +17,9 @@ jobs:
 
       - name: Docker build and push
         run: |
-          docker build -t react-aws-eks-github-actions .
-          docker tag react-aws-eks-github-actions codewithmuh/react-aws-eks-github-actions:latest
+          docker build -t Assignment-26_06_2024 .
+          docker tag Assignment-26_06_2024 howaboutwepullsomeimages/Assignment-26_06_2024:latest
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-          docker push codewithmuh/react-aws-eks-github-actions:latest
+          docker push howaboutwepullsomeimages/Assignment-26_06_2024:latest
         env:
           DOCKER_CLI_ACI: 1
